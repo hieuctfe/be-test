@@ -1,7 +1,7 @@
-import axios from 'axios';
+import axios from "axios";
 
 const axiosInstance = axios.create({
-  baseURL: 'https://be-homework.vercel.app/api',
+  baseURL: "https://be-homework.vercel.app/api",
   paramsSerializer(params) {
     const _params = new URLSearchParams();
     if (params) {
@@ -9,7 +9,7 @@ const axiosInstance = axios.create({
         const value = params[key];
         if (Array.isArray(value)) {
           value.forEach(v => _params.append(key, v));
-        } else if (typeof value === 'object') {
+        } else if (typeof value === "object") {
           _params.append(key, JSON.stringify(value));
         } else {
           _params.append(key, value);
@@ -17,7 +17,7 @@ const axiosInstance = axios.create({
       });
     }
     return _params;
-  },
+  }
 });
 
 export default axiosInstance;
